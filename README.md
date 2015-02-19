@@ -3,6 +3,14 @@ Chandelier Blank
 
 Chandelier Blank is a [Tumblr theme](https://www.tumblr.com/docs/en/custom_themes) that emphasises content and de-emphasises metadata *(notes, sources, etc.)* structured to allow for easy modification.
 
+Installation
+------------
+
+1. Select all the code in [`blank.html`](https://raw.githubusercontent.com/forlornhedgehog/chandelier/master/blank.html) and copy it
+2. Go to [tumblr.com/customize](https://www.tumblr.com/customize) then click `Edit HTML`
+3. Delete all the existing code then paste in the new code
+4. Press `Update Preview` and then `Save`
+
 License
 -------
 
