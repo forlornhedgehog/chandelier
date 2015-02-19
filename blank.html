@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<!-- Chandelier Blank - https://github.com/forlornhedgehog/chandelier -->
+
+	<title>{Title}</title>
+	{block:Description}
+		<meta name="description" content="{MetaDescription}">
+	{/block:Description}
+	<link rel="icon" href="{Favicon}">
+	<link rel="alternate" type="application/rss+xml" href="{RSS}">
+
+	<!-- Styles -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.2/normalize.min.css">
+	<style>
+		/* Generic */
+		body {
+			font-family: "Times", "Times New Roman", sans-serif;
+			background-color: {BackgroundColor};
+		}
+		iframe, img {
+			display: block;
+		}
+		img {
+			max-width: 100%;
+		}
+		a {
+			color: {AccentColor};
+		}
+		a:active {
+			position: relative;
+			top: 1px;
+		}
+
+		/* Specific */
+		.seo {
+			display: none;
+		}
+		.autopagerize_page_element {
+			width: 48%;
+			min-width: 500px;
+			max-width: 720px;
+			margin: auto;
+			padding: 1em 0;
+		}
+		.posts img, .html_photoset, .tumblr_video_container, .tumblr_audio_player {
+			margin: 1em 0;
+		}
+		.posts > article {
+			position: relative;
+		}
+		.posts > article > aside:first-child {
+			position: absolute;
+			left: -32px;
+		}
+		.posts > article.photo > img {
+			width: 100%;
+		}
+		.posts > article.quote > h2 > q::before {
+			content: "\201C";
+			padding-right: 2px;
+		}
+		.posts > article.quote > h2 > q::after {
+			content: "\201D";
+			padding-left: 2px;
+		}
+		.posts > article.quote > p > cite::before, .posts > article.answer > p.question > cite::before {
+			content: "\2014";
+			padding: 0 10px;
+		}
+		.posts > article.answer > p.question {
+			font-weight: bold;
+		}
+		#tumblr_controls {
+			-webkit-transition: all 0.2s ease-in-out;
+			-webkit-filter: invert(100%);
+			opacity: 0.5 !important;
+		}
+		#tumblr_controls:hover {
+			opacity: 0.8 !important;
+		}
+
+		/* Custom CSS */
+		{CustomCSS}
+	</style>
+
+	<!-- Scripts -->
+	<script src="http://codysherman.com/tools/infinite-scrolling/code"></script>
+</head>
+<body>
+	<header class="seo">
+		<p>{Description}</p>
+	</header>
+	<div class="autopagerize_page_element">
+		<div class="posts" id="page_{CurrentPage}">
+			{block:Posts}
+				<article class="{PostType}" id="post_{PostID}">
+					<aside{block:ContentSource} data-sourceurl="{SourceURL}"{/block:ContentSource}{block:RebloggedFrom} data-reblogparentname="{ReblogParentName}"{/block:RebloggedFrom}>
+						{block:IndexPage}<a href="{Permalink}" title="{lang:Permalink}">#</a>{/block:IndexPage}
+						{block:Date}
+							<time class="seo" datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}T{24HourWithZero}:{Minutes}:{Seconds}" data-timestamp="{Timestamp}">{TimeAgo}</time>
+						{/block:Date}
+					</aside>
+					{block:Text}
+						{block:Title}<h2>{Title}</h2>{/block:Title}
+						{Body}
+					{/block:Text}{block:Photo}
+						<img src="{PhotoURL-HighRes}" alt="{PhotoAlt}">
+						{Caption}
+					{/block:Photo}{block:Panorama}
+						{LinkOpenTag}<img src="{PhotoURL-Panorama}" alt="{PhotoAlt}">{LinkCloseTag}
+						{Caption}
+					{/block:Panorama}{block:Photoset}
+						{Photoset}
+						{Caption}
+					{/block:Photoset}{block:Quote}
+						<h2><q>{Quote}</q></h2>
+						{block:Source}<p><cite>{Source}</cite></p>{/block:Source}
+					{/block:Quote}{block:Link}
+						<h2><a href="{URL}" {Target}>{Name}</a></h2>
+						{Description}
+					{/block:Link}{block:Chat}
+						{block:Title}<h2>{Title}</h2>{/block:Title}
+						<p>
+							{block:Lines}
+								{block:Label}<strong>{Label}</strong> {/block:Label}{Line}<br>
+							{/block:Lines}
+						</p>
+					{/block:Chat}{block:Audio}
+						{AudioEmbed}
+						{Caption}
+					{/block:Audio}{block:Video}
+						{Video-700}
+						{Caption}
+					{/block:Video}{block:Answer}
+						<p class="question">{Question}<cite>{Asker}</cite></p>
+						{Answer}
+					{/block:Answer}
+				</article>
+			{/block:Posts}
+		</div>
+	</div>
+</body>
+</html>
