@@ -99,6 +99,7 @@
 				<article class="{PostType}" id="post_{PostID}">
 					<aside{block:ContentSource} data-sourceurl="{SourceURL}"{/block:ContentSource}{block:RebloggedFrom} data-reblogparentname="{ReblogParentName}"{/block:RebloggedFrom}>
 						{block:IndexPage}<a href="{Permalink}" title="{lang:Permalink}">#</a>{/block:IndexPage}
+						{block:PermalinkPage}<a href="/page/{CurrentPage}" title="{lang:Back}">&laquo;</a>{/block:PermalinkPage}
 						{block:Date}
 							<time class="seo" datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}T{24HourWithZero}:{Minutes}:{Seconds}" data-timestamp="{Timestamp}">{TimeAgo}</time>
 						{/block:Date}
