@@ -151,7 +151,7 @@
 			var urlParams;(window.onpopstate=function(){var r,a=/\+/g,n=/([^&=]+)=?([^&]*)/g,o=function(r){return decodeURIComponent(r.replace(a," "))},e=window.location.search.substring(1);for(urlParams={};r=n.exec(e);)urlParams[o(r[1])]=o(r[2])})();
 
 			// Go back to the index page the user was on before they clicked through to a permalink page
-			if (urlParams["page"])
+			if (urlParams["p"])
 				document.getElementById("back").setAttribute("href", "/page/" + urlParams["p"]);
 		})();
 	</script>
