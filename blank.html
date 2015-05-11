@@ -54,6 +54,10 @@
 		.posts > article > aside:first-child {
 			position: absolute;
 			left: -32px;
+			height: 100%;
+		}
+		.posts > article > aside:first-child > div.sticky {
+			top: 16px;
 		}
 		.posts > article.photo > img {
 			width: 100%;
@@ -81,6 +85,14 @@
 		#tumblr_controls:hover {
 			opacity: 0.8 !important;
 		}
+		.sticky {
+			/* "You must specify a threshold with at least one of top, right, bottom, or left for sticky positioning to behave as expected." - MDN */
+			position: -webkit-sticky;
+			position: -moz-sticky;
+			position: -ms-sticky;
+			position: -o-sticky;
+			position: sticky;
+		}
 
 		/* Custom CSS */
 		{CustomCSS}
@@ -98,14 +110,16 @@
 			{block:Posts}
 				<article class="{PostType}" id="post_{PostID}">
 					<aside{block:ContentSource} data-sourceurl="{SourceURL}"{/block:ContentSource}{block:RebloggedFrom} data-reblogparentname="{ReblogParentName}"{/block:RebloggedFrom}>
-						{block:IndexPage}
-							<a href="{Permalink}?p={CurrentPage}" title="{lang:Permalink}">#</a>
-						{/block:IndexPage}{block:PermalinkPage}
-							<a href="/" title="{lang:Back}" id="back">&laquo;</a>
-						{/block:PermalinkPage}{block:Date}
-							<!-- Don't include UTC time-zone as varies with blog settings -->
-							<time class="seo" datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}T{24HourWithZero}:{Minutes}:{Seconds}" data-timestamp="{Timestamp}">{TimeAgo}</time>
-						{/block:Date}
+						<div class="sticky">
+							{block:IndexPage}
+								<a href="{Permalink}?p={CurrentPage}" title="{lang:Permalink}">#</a>
+							{/block:IndexPage}{block:PermalinkPage}
+								<a href="/" title="{lang:Back}" id="back">&laquo;</a>
+							{/block:PermalinkPage}{block:Date}
+								<!-- Don't include UTC time-zone as varies with blog settings -->
+								<time class="seo" datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}T{24HourWithZero}:{Minutes}:{Seconds}" data-timestamp="{Timestamp}">{TimeAgo}</time>
+							{/block:Date}
+						</div>
 					</aside>
 					{block:Text}
 						{block:Title}<h2>{Title}</h2>{/block:Title}
