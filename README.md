@@ -22,3 +22,4 @@ Credits
 * [Normalize.css](https://github.com/necolas/normalize.css/)
 * [Infinite scroll](http://codysherman.com/tools/infinite-scrolling)
 * [urlParams](http://stackoverflow.com/a/2880929/1274763)
+* [Lightbox](https://gist.github.com/edadams/6038781)

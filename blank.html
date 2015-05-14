@@ -23,15 +23,8 @@
 		iframe, img {
 			display: block;
 		}
-		img {
-			max-width: 100%;
-		}
 		a {
 			color: {AccentColor};
-		}
-		a:active {
-			position: relative;
-			top: 1px;
 		}
 
 		/* Specific */
@@ -59,7 +52,7 @@
 		.posts > article > aside:first-child > div.sticky {
 			top: 16px;
 		}
-		.posts > article.photo > img {
+		.posts > article.photo > a > img {
 			width: 100%;
 		}
 		.posts > article.quote > h2 > q::before {
@@ -124,7 +117,9 @@
 						{block:Title}<h2>{Title}</h2>{/block:Title}
 						{Body}
 					{/block:Text}{block:Photo}
-						<img src="{PhotoURL-HighRes}" alt="{PhotoAlt}">
+						<a onclick="openInTumblrLightbox(event, this);" href="{PhotoURL-HighRes}" title="{lang:View high resolution}">
+							<img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" data-width="{PhotoWidth-HighRes}" data-height="{PhotoHeight-HighRes}">
+						</a>
 						{Caption}
 					{/block:Photo}{block:Panorama}
 						{LinkOpenTag}<img src="{PhotoURL-Panorama}" alt="{PhotoAlt}">{LinkCloseTag}
@@ -169,5 +164,17 @@
 				document.getElementById("back").setAttribute("href", "/page/" + urlParams["p"]);
 		</script>
 	{/block:PermalinkPage}
+	<script>
+		// Inspired by https://gist.github.com/edadams/6038781
+		function openInTumblrLightbox(ev, el) {
+			ev.preventDefault();
+			Tumblr.Lightbox.init([{
+				"width": el.children[0].dataset.width,
+				"height": el.children[0].dataset.height,
+				"low_res": el.children[0].src,
+				"high_res": el.children[0].src
+			}], 1);
+		}
+	</script>
 </body>
 </html>
