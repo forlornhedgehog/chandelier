@@ -117,7 +117,7 @@
 						{block:Title}<h2>{Title}</h2>{/block:Title}
 						{Body}
 					{/block:Text}{block:Photo}
-						<a onclick="openInTumblrLightbox(event, this);" href="{PhotoURL-HighRes}" title="{lang:View high resolution}">
+						<a onclick="openInTumblrLightbox(event, this.children[0]);" href="{PhotoURL-HighRes}" title="{lang:View high resolution}">
 							<img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" data-width="{PhotoWidth-HighRes}" data-height="{PhotoHeight-HighRes}">
 						</a>
 						{Caption}
@@ -160,8 +160,8 @@
 			var urlParams;(window.onpopstate=function(){var r,a=/\+/g,n=/([^&=]+)=?([^&]*)/g,o=function(r){return decodeURIComponent(r.replace(a," "))},e=window.location.search.substring(1);for(urlParams={};r=n.exec(e);)urlParams[o(r[1])]=o(r[2])})();
 
 			// Bookmark, change 'Back' link to return to the position the user was at on the index page
-			if (urlParams["p"])
-				document.getElementById("back").setAttribute("href", "/page/" + urlParams["p"]);
+			if (urlParams.p)
+				document.getElementById("back").setAttribute("href", "/page/"+urlParams.p);
 		</script>
 	{/block:PermalinkPage}
 	<script>
@@ -169,10 +169,10 @@
 		function openInTumblrLightbox(ev, el) {
 			ev.preventDefault();
 			Tumblr.Lightbox.init([{
-				"width": el.children[0].dataset.width,
-				"height": el.children[0].dataset.height,
-				"low_res": el.children[0].src,
-				"high_res": el.children[0].src
+				width: el.dataset.width,
+				height: el.dataset.height,
+				low_res: el.src,
+				high_res: el.src
 			}], 1);
 		}
 	</script>
