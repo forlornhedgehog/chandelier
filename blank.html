@@ -109,9 +109,9 @@
 					<aside{block:ContentSource} data-sourceurl="{SourceURL}"{/block:ContentSource}{block:RebloggedFrom} data-reblogparentname="{ReblogParentName}"{/block:RebloggedFrom}>
 						<div class="sticky">
 							{block:IndexPage}
-								<a href="{Permalink}?p={CurrentPage}" title="{lang:Permalink}">#</a>
+								<a href="{Permalink}" title="{lang:Permalink}">#</a>
 							{/block:IndexPage}{block:PermalinkPage}
-								<a href="/" title="{lang:Back}" id="back">&laquo;</a>
+								<a href="/" title="{lang:Back}">&laquo;</a>
 							{/block:PermalinkPage}{block:Date}
 								<time class="seo" datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}T{24HourWithZero}:{Minutes}:{Seconds}" data-timestamp="{Timestamp}">{TimeAgo}</time>
 							{/block:Date}
@@ -158,16 +158,6 @@
 			{/block:Posts}
 		</div>
 	</div>
-	{block:PermalinkPage}
-		<script>
-			// urlParams retrieved 8 May 2015 from http://stackoverflow.com/a/2880929/1274763 then minified
-			var urlParams;(window.onpopstate=function(){var r,a=/\+/g,n=/([^&=]+)=?([^&]*)/g,o=function(r){return decodeURIComponent(r.replace(a," "))},e=window.location.search.substring(1);for(urlParams={};r=n.exec(e);)urlParams[o(r[1])]=o(r[2])})();
-
-			// Bookmark, change 'Back' link to return to the position the user was at on the index page
-			if (urlParams.p)
-				document.getElementById("back").setAttribute("href", "/page/"+urlParams.p);
-		</script>
-	{/block:PermalinkPage}
 	<script>
 		// Inspired by https://gist.github.com/edadams/6038781
 		function openInTumblrLightbox(ev, el) {
