@@ -19,6 +19,7 @@
 		body {
 			font-family: Times, "Times New Roman", sans-serif;
 			background-color: {BackgroundColor};
+			-webkit-font-smoothing: antialiased;
 		}
 		iframe, img {
 			display: block;
@@ -54,6 +55,9 @@
 		}
 		.posts > article.photo > a > img {
 			width: 100%;
+		}
+		.posts > article.quote > h2 {
+			font-weight: normal;
 		}
 		.posts > article.quote > h2 > q::before {
 			content: "\201C";
