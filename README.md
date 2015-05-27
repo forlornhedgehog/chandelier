@@ -3,6 +3,21 @@ Chandelier Blank
 
 Chandelier Blank is a [Tumblr theme](https://www.tumblr.com/docs/en/custom_themes) that emphasises content and de-emphasises metadata *(notes, sources, etc.)* structured to allow for easy modification.
 
+![Screenshot of the Chandelier Blank index page](screenshots/index.png)
+
+Features
+--------
+
+* Minimal, content-focused, responsive design
+* Post metadata removed (notes, source, reblogged via ...)
+* Photos in high-res as default
+* Photo click through URLs removed, instead clicking opens them in a lightbox
+* Infinite scroll
+* Accent and background colours easily customisable
+* Language independent, using Tumblr's localisation tags
+* Clean source code, making modification easy
+* W3C validated HTML5 and CSS3
+
 Installation
 ------------
 
