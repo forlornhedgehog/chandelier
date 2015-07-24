@@ -32,46 +32,46 @@
 		.seo {
 			display: none;
 		}
-		.autopagerize_page_element {
+		.wrapper {
 			width: 48%;
 			min-width: 500px;
 			max-width: 720px;
 			margin: auto;
 			padding: 1em 0;
 		}
-		.posts img, .html_photoset, .tumblr_video_container, .tumblr_audio_player {
+		article.post img, .html_photoset, .tumblr_video_container, .tumblr_audio_player {
 			margin: 1em 0;
 		}
-		.posts > article {
+		article.post {
 			position: relative;
 		}
-		.posts > article > aside:first-child {
+		article.post > aside:first-child {
 			position: absolute;
 			left: -32px;
 			height: 100%;
 		}
-		.posts > article > aside:first-child > div.sticky {
+		article.post > aside:first-child > div.sticky {
 			top: 16px;
 		}
-		.posts > article.photo > a > img {
+		article.post.photo > a > img {
 			width: 100%;
 		}
-		.posts > article.quote > h2 {
+		article.post.quote > h2 {
 			font-weight: normal;
 		}
-		.posts > article.quote > h2 > q::before {
+		article.post.quote > h2 > q::before {
 			content: "\201C";
 			padding-right: 2px;
 		}
-		.posts > article.quote > h2 > q::after {
+		article.post.quote > h2 > q::after {
 			content: "\201D";
 			padding-left: 2px;
 		}
-		.posts > article.quote > p > cite::before, .posts > article.answer > p.question > cite::before {
+		article.post.quote > p > cite::before, article.post.answer > p.question > cite::before {
 			content: "\2014";
 			padding: 0 10px;
 		}
-		.posts > article.answer > p.question {
+		article.post.answer > p.question {
 			font-weight: bold;
 		}
 		#tumblr_controls {
@@ -102,10 +102,10 @@
 	<header class="seo">
 		<p>{Description}</p>
 	</header>
-	<div class="autopagerize_page_element">
-		<div class="posts" id="page_{CurrentPage}">
+	<div class="wrapper">
+		<div class="posts">
 			{block:Posts}
-				<article class="{PostType}" id="post_{PostID}">
+				<article class="post {PostType}" id="post_{PostID}">
 					<aside{block:ContentSource} data-sourceurl="{SourceURL}"{/block:ContentSource}{block:RebloggedFrom} data-reblogparentname="{ReblogParentName}"{/block:RebloggedFrom}>
 						<div class="sticky">
 							{block:IndexPage}
