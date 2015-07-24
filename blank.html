@@ -121,7 +121,7 @@
 						{block:Title}<h2>{Title}</h2>{/block:Title}
 						{Body}
 					{/block:Text}{block:Photo}
-						<a onclick="openInTumblrLightbox(event, this.children[0]);" href="{PhotoURL-HighRes}" title="{lang:View high resolution}">
+						<a onclick="openInTumblrLightbox(this.children[0]);" href="{PhotoURL-HighRes}" title="{lang:View high resolution}">
 							<img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" data-width="{PhotoWidth-HighRes}" data-height="{PhotoHeight-HighRes}">
 						</a>
 						{Caption}
@@ -160,13 +160,13 @@
 	</div>
 	<script>
 		// Inspired by https://gist.github.com/edadams/6038781
-		function openInTumblrLightbox(ev, el) {
-			ev.preventDefault();
+		function openInTumblrLightbox(obj) {
+			event.preventDefault();
 			Tumblr.Lightbox.init([{
-				width: el.dataset.width,
-				height: el.dataset.height,
-				low_res: el.src,
-				high_res: el.src
+				width: obj.dataset.width,
+				height: obj.dataset.height,
+				low_res: obj.src,
+				high_res: obj.src
 			}], 1);
 		}
 	</script>
