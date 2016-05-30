@@ -1,171 +1,171 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-	<meta charset="utf-8">
+	<head>
+		<meta charset="utf-8">
 
-	<!-- Theme: Chandelier Blank - https://github.com/forlornhedgehog/chandelier -->
+		<!-- Theme: Chandelier Blank - https://github.com/forlornhedgehog/chandelier -->
 
-	<title>{Title}</title>
-	{block:Description}
-		<meta name="description" content="{MetaDescription}">
-	{/block:Description}
-	<link rel="icon" href="{Favicon}">
-	<link rel="alternate" type="application/rss+xml" href="{RSS}">
+		<title>{Title}</title>
+		{block:Description}
+			<meta name="description" content="{MetaDescription}">
+		{/block:Description}
+		<link rel="icon" href="{Favicon}">
+		<link rel="alternate" type="application/rss+xml" href="{RSS}">
 
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css">
-	<style>
-		/* Generic */
-		body {
-			font-family: Times, "Times New Roman", sans-serif;
-			background-color: {BackgroundColor};
-			-webkit-font-smoothing: antialiased;
-		}
-		iframe, img {
-			display: block;
-		}
-		a {
-			color: {AccentColor};
-		}
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css">
+		<style>
+			/* Generic */
+			body {
+				font-family: Times, "Times New Roman", sans-serif;
+				background-color: {BackgroundColor};
+				-webkit-font-smoothing: antialiased;
+			}
+			iframe, img {
+				display: block;
+			}
+			a {
+				color: {AccentColor};
+			}
 
-		/* Specific */
-		.seo {
-			display: none;
-		}
-		.wrapper {
-			width: 48%;
-			min-width: 500px;
-			max-width: 720px;
-			margin: auto;
-			padding: 1em 0;
-		}
-		article.post img, .html_photoset, .tumblr_video_container, .tumblr_audio_player {
-			margin: 1em 0;
-		}
-		article.post {
-			position: relative;
-		}
-		article.post > aside:first-child {
-			position: absolute;
-			left: -32px;
-			height: 100%;
-		}
-		article.post > aside:first-child > div.sticky {
-			top: 16px;
-		}
-		article.post.photo > a > img {
-			width: 100%;
-		}
-		article.post.quote > h2 {
-			font-weight: normal;
-		}
-		article.post.quote > h2 > q::before {
-			content: "\201C";
-			padding-right: 2px;
-		}
-		article.post.quote > h2 > q::after {
-			content: "\201D";
-			padding-left: 2px;
-		}
-		article.post.quote > p > cite::before, article.post.answer > p.question > cite::before {
-			content: "\2014";
-			padding: 0 10px;
-		}
-		article.post.answer > p.question {
-			font-weight: bold;
-		}
-		#tumblr_controls {
-			-webkit-transition: all 0.2s ease-in-out;
-			-webkit-filter: invert(100%);
-			opacity: 0.5 !important;
-		}
-		#tumblr_controls:hover {
-			opacity: 0.8 !important;
-		}
-		.sticky {
-			/* "You must specify a threshold with at least one of top, right, bottom, or left for sticky positioning to behave as expected." - MDN */
-			position: -webkit-sticky;
-			position: -moz-sticky;
-			position: -ms-sticky;
-			position: -o-sticky;
-			position: sticky;
-		}
+			/* Specific */
+			.seo {
+				display: none;
+			}
+			.wrapper {
+				width: 48%;
+				min-width: 500px;
+				max-width: 720px;
+				margin: auto;
+				padding: 1em 0;
+			}
+			article.post img, .html_photoset, .tumblr_video_container, .tumblr_audio_player {
+				margin: 1em 0;
+			}
+			article.post {
+				position: relative;
+			}
+			article.post > aside:first-child {
+				position: absolute;
+				left: -32px;
+				height: 100%;
+			}
+			article.post > aside:first-child > div.sticky {
+				top: 16px;
+			}
+			article.post.photo > a > img {
+				width: 100%;
+			}
+			article.post.quote > h2 {
+				font-weight: normal;
+			}
+			article.post.quote > h2 > q::before {
+				content: "\201C";
+				padding-right: 2px;
+			}
+			article.post.quote > h2 > q::after {
+				content: "\201D";
+				padding-left: 2px;
+			}
+			article.post.quote > p > cite::before, article.post.answer > p.question > cite::before {
+				content: "\2014";
+				padding: 0 10px;
+			}
+			article.post.answer > p.question {
+				font-weight: bold;
+			}
+			#tumblr_controls {
+				-webkit-transition: all 0.2s ease-in-out;
+				-webkit-filter: invert(100%);
+				opacity: 0.5 !important;
+			}
+			#tumblr_controls:hover {
+				opacity: 0.8 !important;
+			}
+			.sticky {
+				/* "You must specify a threshold with at least one of top, right, bottom, or left for sticky positioning to behave as expected." - MDN */
+				position: -webkit-sticky;
+				position: -moz-sticky;
+				position: -ms-sticky;
+				position: -o-sticky;
+				position: sticky;
+			}
 
-		/* Custom CSS */
-		{CustomCSS}
-	</style>
+			/* Custom CSS */
+			{CustomCSS}
+		</style>
 
-	<script src="https://static.tumblr.com/q0etgkr/EIBmz7s0p/infinitescrolling.js"></script>
-</head>
-<body>
-	<header class="seo">
-		<p>{Description}</p>
-	</header>
-	<div class="wrapper">
-		<div class="posts">
-			{block:Posts}
-				<article class="post {PostType}" id="post_{PostID}">
-					<aside{block:ContentSource} data-sourceurl="{SourceURL}"{/block:ContentSource}{block:RebloggedFrom} data-reblogparentname="{ReblogParentName}"{/block:RebloggedFrom}>
-						<div class="sticky">
-							{block:IndexPage}
-								<a href="{Permalink}" title="{lang:Permalink}">#</a>
-							{/block:IndexPage}{block:PermalinkPage}
-								<a href="/" title="{lang:Back}">&laquo;</a>
-							{/block:PermalinkPage}{block:Date}
-								<time class="seo" datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}T{24HourWithZero}:{Minutes}:{Seconds}" data-timestamp="{Timestamp}">{TimeAgo}</time>
-							{/block:Date}
-						</div>
-					</aside>
-					{block:Text}
-						{block:Title}<h2>{Title}</h2>{/block:Title}
-						{Body}
-					{/block:Text}{block:Photo}
-						<a onclick="openInTumblrLightbox(this.children[0]);" href="{PhotoURL-HighRes}" title="{lang:View high resolution}">
-							<img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" data-width="{PhotoWidth-HighRes}" data-height="{PhotoHeight-HighRes}">
-						</a>
-						{Caption}
-					{/block:Photo}{block:Panorama}
-						{LinkOpenTag}<img src="{PhotoURL-Panorama}" alt="{PhotoAlt}">{LinkCloseTag}
-						{Caption}
-					{/block:Panorama}{block:Photoset}
-						{Photoset}
-						{Caption}
-					{/block:Photoset}{block:Quote}
-						<h2><q>{Quote}</q></h2>
-						{block:Source}<p><cite>{Source}</cite></p>{/block:Source}
-					{/block:Quote}{block:Link}
-						<h2><a href="{URL}" {Target}>{Name}</a></h2>
-						{Description}
-					{/block:Link}{block:Chat}
-						{block:Title}<h2>{Title}</h2>{/block:Title}
-						<p>
-							{block:Lines}
-								{block:Label}<strong>{Label}</strong> {/block:Label}{Line}<br>
-							{/block:Lines}
-						</p>
-					{/block:Chat}{block:Audio}
-						{AudioEmbed}
-						{Caption}
-					{/block:Audio}{block:Video}
-						{Video-700}
-						{Caption}
-					{/block:Video}{block:Answer}
-						<p class="question">{Question}<cite>{Asker}</cite></p>
-						{Answer}
-					{/block:Answer}
-				</article>
-			{/block:Posts}
+		<script src="https://static.tumblr.com/q0etgkr/EIBmz7s0p/infinitescrolling.js"></script>
+	</head>
+	<body>
+		<header class="seo">
+			<p>{Description}</p>
+		</header>
+		<div class="wrapper">
+			<div class="posts">
+				{block:Posts}
+					<article class="post {PostType}" id="post_{PostID}">
+						<aside{block:ContentSource} data-sourceurl="{SourceURL}"{/block:ContentSource}{block:RebloggedFrom} data-reblogparentname="{ReblogParentName}"{/block:RebloggedFrom}>
+							<div class="sticky">
+								{block:IndexPage}
+									<a href="{Permalink}" title="{lang:Permalink}">#</a>
+								{/block:IndexPage}{block:PermalinkPage}
+									<a href="/" title="{lang:Back}">&laquo;</a>
+								{/block:PermalinkPage}{block:Date}
+									<time class="seo" datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}T{24HourWithZero}:{Minutes}:{Seconds}" data-timestamp="{Timestamp}">{TimeAgo}</time>
+								{/block:Date}
+							</div>
+						</aside>
+						{block:Text}
+							{block:Title}<h2>{Title}</h2>{/block:Title}
+							{Body}
+						{/block:Text}{block:Photo}
+							<a onclick="openInTumblrLightbox(this.children[0]);" href="{PhotoURL-HighRes}" title="{lang:View high resolution}">
+								<img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" data-width="{PhotoWidth-HighRes}" data-height="{PhotoHeight-HighRes}">
+							</a>
+							{Caption}
+						{/block:Photo}{block:Panorama}
+							{LinkOpenTag}<img src="{PhotoURL-Panorama}" alt="{PhotoAlt}">{LinkCloseTag}
+							{Caption}
+						{/block:Panorama}{block:Photoset}
+							{Photoset}
+							{Caption}
+						{/block:Photoset}{block:Quote}
+							<h2><q>{Quote}</q></h2>
+							{block:Source}<p><cite>{Source}</cite></p>{/block:Source}
+						{/block:Quote}{block:Link}
+							<h2><a href="{URL}" {Target}>{Name}</a></h2>
+							{Description}
+						{/block:Link}{block:Chat}
+							{block:Title}<h2>{Title}</h2>{/block:Title}
+							<p>
+								{block:Lines}
+									{block:Label}<strong>{Label}</strong> {/block:Label}{Line}<br>
+								{/block:Lines}
+							</p>
+						{/block:Chat}{block:Audio}
+							{AudioEmbed}
+							{Caption}
+						{/block:Audio}{block:Video}
+							{Video-700}
+							{Caption}
+						{/block:Video}{block:Answer}
+							<p class="question">{Question}<cite>{Asker}</cite></p>
+							{Answer}
+						{/block:Answer}
+					</article>
+				{/block:Posts}
+			</div>
 		</div>
-	</div>
-	<script>
-		function openInTumblrLightbox(obj) {
-			event.preventDefault();
-			Tumblr.Lightbox.init([{
-				width: obj.dataset.width,
-				height: obj.dataset.height,
-				low_res: obj.src,
-				high_res: obj.src
-			}], 1);
-		}
-	</script>
-</body>
+		<script>
+			function openInTumblrLightbox(obj) {
+				event.preventDefault();
+				Tumblr.Lightbox.init([{
+					width: obj.dataset.width,
+					height: obj.dataset.height,
+					low_res: obj.src,
+					high_res: obj.src
+				}], 1);
+			}
+		</script>
+	</body>
 </html>
