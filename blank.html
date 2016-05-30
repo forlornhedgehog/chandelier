@@ -50,6 +50,8 @@
 				height: 100%;
 			}
 			article.post > aside:first-child > div.sticky {
+				position: -webkit-sticky;
+				position: sticky;
 				top: 16px;
 			}
 			article.post.photo > a > img {
@@ -80,14 +82,6 @@
 			}
 			#tumblr_controls:hover {
 				opacity: 0.8 !important;
-			}
-			.sticky {
-				/* "You must specify a threshold with at least one of top, right, bottom, or left for sticky positioning to behave as expected." - MDN */
-				position: -webkit-sticky;
-				position: -moz-sticky;
-				position: -ms-sticky;
-				position: -o-sticky;
-				position: sticky;
 			}
 
 			/* Custom CSS */
