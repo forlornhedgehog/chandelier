@@ -26,11 +26,11 @@
 			a {
 				color: {AccentColor};
 			}
+			.hidden {
+				display: none !important;
+			}
 
 			/* Specific */
-			.seo {
-				display: none;
-			}
 			.wrapper {
 				width: 48%;
 				min-width: 500px;
@@ -91,7 +91,7 @@
 		<script src="https://static.tumblr.com/q0etgkr/EIBmz7s0p/infinitescrolling.js"></script>
 	</head>
 	<body>
-		<header class="seo">
+		<header class="hidden">
 			<p>{Description}</p>
 		</header>
 		<div class="wrapper">
@@ -105,7 +105,7 @@
 								{/block:IndexPage}{block:PermalinkPage}
 									<a href="/" title="{lang:Back}">&laquo;</a>
 								{/block:PermalinkPage}{block:Date}
-									<time class="seo" datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}T{24HourWithZero}:{Minutes}:{Seconds}" data-timestamp="{Timestamp}">{TimeAgo}</time>
+									<time class="hidden" datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero}T{24HourWithZero}:{Minutes}:{Seconds}" data-timestamp="{Timestamp}">{TimeAgo}</time>
 								{/block:Date}
 							</div>
 						</aside>
