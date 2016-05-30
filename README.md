@@ -38,6 +38,6 @@ Copyright © 2015 Forlorn Hedgehog. This work is licensed under a [Creative Comm
 Credits
 -------
 
-* [Normalize.css](https://github.com/necolas/normalize.css/)
+* [Normalize.css](http://necolas.github.io/normalize.css/) 4.1.1
 * tumblrAutoPager 0.1.7
 * `Tumblr.Lightbox.init()` from [Tumblr](http://assets.tumblr.com/assets/scripts/tumblelog.js), idea via [edamams](https://gist.github.com/edadams/6038781)
