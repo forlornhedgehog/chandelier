@@ -113,7 +113,7 @@
 							{block:Title}<h2>{Title}</h2>{/block:Title}
 							{Body}
 						{/block:Text}{block:Photo}
-							<a onclick="openInTumblrLightbox(this.children[0]);" href="{PhotoURL-HighRes}" title="{lang:View high resolution}">
+							<a onclick="openInTumblrLightbox(event, this.children[0])" href="{PhotoURL-HighRes}" title="{lang:View high resolution}">
 								<img src="{PhotoURL-HighRes}" alt="{PhotoAlt}" data-width="{PhotoWidth-HighRes}" data-height="{PhotoHeight-HighRes}">
 							</a>
 							{Caption}
@@ -151,8 +151,8 @@
 			</div>
 		</div>
 		<script>
-			function openInTumblrLightbox(obj) {
-				event.preventDefault();
+			function openInTumblrLightbox(ev, obj) {
+				ev.preventDefault();
 				Tumblr.Lightbox.init([{
 					width: obj.dataset.width,
 					height: obj.dataset.height,
