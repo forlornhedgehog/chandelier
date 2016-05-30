@@ -39,5 +39,5 @@ Credits
 -------
 
 * [Normalize.css](https://github.com/necolas/normalize.css/)
-* [Infinite scroll](http://codysherman.com/tools/infinite-scrolling)
+* tumblrAutoPager 0.1.7
 * `Tumblr.Lightbox.init()` from [Tumblr](http://assets.tumblr.com/assets/scripts/tumblelog.js), idea via [edamams](https://gist.github.com/edadams/6038781)
