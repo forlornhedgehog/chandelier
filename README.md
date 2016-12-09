@@ -33,6 +33,6 @@ This work is licensed under a [Creative Commons Attribution 4.0 International Li
 
 ## Credits
 
-* [Normalize.css](https://necolas.github.io/normalize.css/) 4.1.1
+* [Normalize.css](https://necolas.github.io/normalize.css/) 5.0.0
 * [tumblrAutoPager](https://static.tumblr.com/q0etgkr/EIBmz7s0p/infinitescrolling.js) 0.1.7
 * Lightbox from Tumblr's [`lightbox.js`](https://assets.tumblr.com/assets/scripts/tumblelog/lightbox.js) which is included in each page's [`tumblelog.js`](https://assets.tumblr.com/assets/scripts/tumblelog.js), idea via **[@edadams](https://gist.github.com/edadams/6038781)**' gist
